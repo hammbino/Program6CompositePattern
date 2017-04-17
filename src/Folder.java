@@ -74,9 +74,9 @@ public class Folder extends FileSystemComponent {
 		if (this.getName().equals(fileName)) {
 			return this;
 		}
-
-		for (Object aFolder : folder) {
-			FileSystemComponent temp = (FileSystemComponent) aFolder;
+		Iterator iterator = folder.iterator();
+		while (iterator.hasNext()) {
+			FileSystemComponent temp = (FileSystemComponent) iterator.next();
 			String compName = temp.getName();
 			if (compName.equals(fileName)) {
 				toReturn = temp.chdir(fileName);
